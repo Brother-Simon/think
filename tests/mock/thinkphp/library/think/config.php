@@ -129,4 +129,10 @@ class Config
         }
     }
 
+    // 重置C变量
+    public static function reset($name, $value = null, $range = '')
+    {
+       self::$config = [];
+    }
+
 }

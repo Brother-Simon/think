@@ -18,13 +18,29 @@
 namespace think\cache\driver;
 
 use think\Exception;
+use think\app;
+use think\config;
 
 class commonTest extends \PHPUnit_Framework_TestCase
 {
   public function setUp()
   {
+
   }
   public function testA(){
-    $this->assertEquals(1,2);
+    C('s',43);
+    App::run(Config::get());
+    S('name',$value);
+    dump(C('s'));
+  	// TPRun();
+  	// TPRun();
+  	// S('a','11');
+  	// $this->assertEquals(10,S('a'));
+  	// TPDestory();
+    Config::reset(); 
+    dump(C('s'));
+  }
+  public function testB(){
+    A('index');
   }
 }
