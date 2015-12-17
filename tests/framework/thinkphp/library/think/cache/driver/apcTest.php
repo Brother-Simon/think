@@ -14,7 +14,6 @@
  * @author    mahuan <mahuan@d1web.top>
  */
 
-
 namespace think\cache\driver;
 
 use think\Exception;
@@ -23,24 +22,25 @@ use think\config;
 
 class commonTest extends \PHPUnit_Framework_TestCase
 {
+  //设定基境
   public function setUp()
   {
-
+    //验证模块是否加载
+    if(!extension_loaded('apc')){
+      $this->markTestSkipped('apc扩展不可用！');
+    };
   }
-  public function testA(){
-    C('s',43);
+  /**
+   * 测试读取缓存
+  */
+  public function testGet(){
     App::run(Config::get());
-    S('name',$value);
-    dump(C('s'));
-  	// TPRun();
-  	// TPRun();
-  	// S('a','11');
-  	// $this->assertEquals(10,S('a'));
-  	// TPDestory();
+    S(array('type'=>'apc','expire'=>3));
+    S('key','value');
+    $this->assertEquals('value',S('key'));
+    //缓存过期测试
+    sleep(3);
+    $this->assertFalse('value' == S('key'));
     Config::reset(); 
-    dump(C('s'));
-  }
-  public function testB(){
-    A('index');
   }
 }

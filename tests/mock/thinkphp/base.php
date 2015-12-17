@@ -13,7 +13,7 @@
 define('THINK_VERSION', '5.0.0beta');
 // 系统常量
 defined('DS') or define('DS', DIRECTORY_SEPARATOR);
-defined('THINK_PATH') or define('THINK_PATH', dirname(__FILE__) . DS);
+defined('THINK_PATH') or define('THINK_PATH', dirname(__FILE__) . DS .'..' . DS .'..' . DS .'..' . DS .'thinkphp/');
 defined('LIB_PATH') or define('LIB_PATH', THINK_PATH . 'library' . DS);
 defined('MODE_PATH') or define('MODE_PATH', THINK_PATH . 'mode' . DS); // 系统应用模式目录
 defined('CORE_PATH') or define('CORE_PATH', LIB_PATH . 'think' . DS);
